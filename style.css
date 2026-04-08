@@ -137,17 +137,19 @@ body {
     font-weight: 400;
 }
 
-.info-item {
-    flex: 1;
-    min-width: 150px;
-    text-align: center;
-}
+
 
 .info-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1.5rem;
+}
+
+.info-item {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
 }
 
 .info-label {
