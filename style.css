@@ -1,4 +1,3 @@
-/* Reset y base */
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +9,10 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: #2c2b2a;
     line-height: 1.5;
-    padding-top: 80px; /* espacio para el header fijo */
+    padding-top: 80px;
 }
 
-/* Header fijo minimalista */
+/* Header fijo con navegación centrada */
 .main-header {
     position: fixed;
     top: 0;
@@ -31,7 +30,7 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -42,12 +41,19 @@ body {
     font-size: 1.5rem;
     letter-spacing: -0.3px;
     color: #1e1e1e;
-    margin: 0;
+    flex: 1;
+    text-align: left;
 }
 
 .main-nav {
     display: flex;
     gap: 2rem;
+    flex: 0 0 auto;
+}
+
+.header-placeholder {
+    flex: 1;
+    visibility: hidden;
 }
 
 .nav-btn {
@@ -97,7 +103,40 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Galería (igual que antes) */
+/* Franja de información con línea negra delgada */
+.info-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem 0;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid #2c2b2a; /* línea negra delgada */
+}
+
+.info-item {
+    flex: 1;
+    min-width: 150px;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #8c8a87;
+    margin-bottom: 0.3rem;
+}
+
+.info-value {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #1e1e1e;
+    line-height: 1.4;
+}
+
+/* Galería (igual) */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -167,7 +206,7 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* Acerca de - foto y texto justificado */
+/* Acerca de - sin cambios */
 .about-container {
     display: flex;
     flex-wrap: wrap;
@@ -213,11 +252,7 @@ body {
     color: #3a3a38;
 }
 
-.about-text p:last-child {
-    margin-bottom: 0;
-}
-
-/* Lightbox (sin cambios) */
+/* Lightbox */
 .lightbox {
     position: fixed;
     top: 0;
@@ -299,11 +334,19 @@ footer {
     }
     .header-container {
         flex-direction: column;
-        align-items: center;
+        gap: 0.5rem;
+    }
+    .site-name, .header-placeholder {
+        flex: auto;
         text-align: center;
     }
     .main-nav {
         gap: 1.5rem;
+    }
+    .info-strip {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
     }
     .about-container {
         flex-direction: column;
