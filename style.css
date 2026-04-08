@@ -164,7 +164,7 @@ body {
 }
 
 .info-value {
-    font-size: 0.9em;       /* Ligeramente más pequeño para que quepa */
+    font-size: 0.7rem;       /* Ligeramente más pequeño para que quepa */
     font-weight: 200;
     color: #1e1e1e;
     line-height: 1.4;
