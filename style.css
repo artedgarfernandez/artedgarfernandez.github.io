@@ -319,6 +319,11 @@ footer {
     color: #8c8a87;
 }
 
+/* Para que la columna de bienvenida tenga un poco más de espacio */
+.info-item nth-child3 {
+    flex: 1.5;
+}
+
 /* Animaciones */
 @keyframes fadeInUp {
     to {
@@ -362,3 +367,4 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
