@@ -131,7 +131,7 @@ body {
 }
 
 .welcome-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
     line-height: 1.6;
     color: #1e1e1e;
     font-weight: 400;
@@ -164,7 +164,7 @@ body {
 }
 
 .info-value {
-    font-size: 0.85rem;       /* Ligeramente más pequeño para que quepa */
+    font-size: 0.75rem;       /* Ligeramente más pequeño para que quepa */
     font-weight: 400;
     color: #1e1e1e;
     line-height: 1.4;
