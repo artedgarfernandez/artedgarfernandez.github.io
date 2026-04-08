@@ -1,53 +1,35 @@
 // ---------- DATOS DE LAS OBRAS (REEMPLAZA CON TUS IMÁGENES) ----------
 const obras = [
     {
-        src: "https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?w=800&h=500&fit=crop",
-        title: "Silencio en el taller",
-        medium: "Óleo sobre lienzo, 80x100 cm",
+        src: "imagenes/La tregua del pensamiento.webp",
+        title: "La tregua del Pensamiento",
+        medium: "Óleo sobre lienzo, 37x45 cm",
         format: "horizontal"
     },
     {
-        src: "https://images.unsplash.com/photo-1549490349-864f9f2c0a64?w=600&h=750&fit=crop",
-        title: "Mirada interior",
-        medium: "Carboncillo y pastel, 50x70 cm",
+        src: "imagenes/Misterioso Conocimiento.webp",
+        title: "Misterioso conocimiento",
+        medium: "Óleo sobre lienzo, 86x87 cm",
         format: "vertical"
     },
     {
-        src: "https://images.unsplash.com/photo-1580137189272-c9379f8864fd?w=800&h=800&fit=crop",
-        title: "Figura en reposo",
-        medium: "Acrílico sobre tabla, 60x60 cm",
+        src: "imagenes/Nahiara Azulada.webp",
+        title: "Nahiara Azulada",
+        medium: "Óleo sobre lienzo, 37x45 cm",
         format: "square"
     },
     {
-        src: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=800&h=500&fit=crop",
-        title: "El pensamiento",
-        medium: "Tinta y grafito, 70x50 cm",
+        src: "imagenes/Soledad no deseada.webp",
+        title: "Soledad no deseada",
+        medium: "Óleo sobre lienzo, 37x45 cm",
         format: "horizontal"
     },
     {
-        src: "https://images.unsplash.com/photo-1579783902614-a3fb3927c4b6?w=600&h=800&fit=crop",
-        title: "Encuentro",
-        medium: "Óleo sobre lienzo, 90x120 cm",
+        src: "imagenes/Romero.webp",
+        title: "Romero - Santa Cruz de Mora",
+        medium: "Acrílico sobre papel, 21x27 cm",
         format: "vertical"
     },
-    {
-        src: "https://images.unsplash.com/photo-1577720643270-5d8cfdd1a013?w=800&h=600&fit=crop",
-        title: "Luz de estudio",
-        medium: "Acuarela y lápiz, 40x55 cm",
-        format: "horizontal"
-    },
-    {
-        src: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=700&h=700&fit=crop",
-        title: "Bodegón figurativo",
-        medium: "Mixta sobre papel, 50x50 cm",
-        format: "square"
-    },
-    {
-        src: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600&h=850&fit=crop",
-        title: "La modelo",
-        medium: "Pastel al óleo, 65x90 cm",
-        format: "vertical"
-    }
 ];
 
 // ---------- CARGAR GALERÍA ----------
