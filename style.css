@@ -155,17 +155,17 @@ body {
 
 .info-label {
     display: block;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 500;
+    font-weight: 200;
     color: #8c8a87;
     margin-bottom: 0.3rem;
 }
 
 .info-value {
-    font-size: 0.75rem;       /* Ligeramente más pequeño para que quepa */
-    font-weight: 400;
+    font-size: 0.6rem;       /* Ligeramente más pequeño para que quepa */
+    font-weight: 200;
     color: #1e1e1e;
     line-height: 1.4;
     word-break: break-word;   /* Evita desbordamiento */
