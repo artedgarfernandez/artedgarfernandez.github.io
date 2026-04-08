@@ -13,17 +13,37 @@
 
     <header class="main-header">
         <div class="header-container">
-            <h1 class="site-name">Edgar Fernández</h1>
+            <div class="site-name">Edgar Fernández</div>
             <nav class="main-nav">
                 <button class="nav-btn active" data-section="trabajos">Trabajos</button>
                 <button class="nav-btn" data-section="acerca">Acerca de</button>
             </nav>
+            <div class="header-placeholder"></div> <!-- para equilibrar el espacio -->
         </div>
     </header>
 
     <main class="container">
-        <!-- Sección Trabajos (galería) -->
+        <!-- Sección Trabajos -->
         <section id="trabajos-section" class="page-section active-section">
+            <!-- Franja de información (Ubicación, Servicios, Bienvenida, Contacto) -->
+            <div class="info-strip">
+                <div class="info-item">
+                    <span class="info-label">Ubicación</span>
+                    <span class="info-value">Ciudad de México / CDMX</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Servicios</span>
+                    <span class="info-value">Comisiones · Clases · Asesoría</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Bienvenida</span>
+                    <span class="info-value">Estudio abierto con cita previa</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Contacto</span>
+                    <span class="info-value">contacto@edgarfernandez.art</span>
+                </div>
+            </div>
             <div class="gallery" id="gallery"></div>
         </section>
 
@@ -35,7 +55,7 @@
                 </div>
                 <div class="about-text">
                     <h2>Acerca de mí</h2>
-                    <p>Edgar Fernández es un artista visual figurativo radicado en [tu ciudad]. Su obra explora la condición humana a través de la pintura y el dibujo, combinando técnicas clásicas con una sensibilidad contemporánea. Ha participado en exposiciones individuales y colectivas en galerías de [país/ciudad].</p>
+                    <p>Edgar Fernández es un artista visual figurativo radicado en la Ciudad de México. Su obra explora la condición humana a través de la pintura y el dibujo, combinando técnicas clásicas con una sensibilidad contemporánea. Ha participado en exposiciones individuales y colectivas en galerías de México y Estados Unidos.</p>
                     <p>Su trabajo se caracteriza por el uso de la luz y la textura para evocar emociones íntimas, retratando escenas cotidianas con un toque poético. Actualmente desarrolla una serie sobre el silencio y la introspección.</p>
                     <p>Para Edgar, el arte es un puente entre el espectador y su propia mirada interior. Cada pieza busca invitar a una pausa, una reflexión.</p>
                     <p><strong>Contacto:</strong> contacto@edgarfernandez.art</p>
@@ -45,10 +65,10 @@
     </main>
 
     <footer>
-        <p>© 2025 Edgar Fernández — Todos los derechos reservados</p>
+        <p>© 2026 Edgar Fernández — Todos los derechos reservados</p>
     </footer>
 
-    <!-- Lightbox (estructura igual) -->
+    <!-- Lightbox -->
     <div id="lightbox" class="lightbox">
         <div class="lightbox-content">
             <button class="close-lightbox" id="closeLightboxBtn">&times;</button>
