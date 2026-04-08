@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Edgar Fernández | Artista Visual Figurativo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf9f8;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #2c2b2a;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Encabezado minimalista */
+        header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #1e1e1e;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #6b6a68;
+            margin-top: 0.5rem;
+            border-top: 1px solid #e4e2e0;
+            display: inline-block;
+            padding-top: 0.75rem;
+        }
+
+        /* Galería tipo masonry con grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 3rem;
+        }
+
+        /* Tarjeta de obra */
+        .artwork {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        /* Efecto hover sutil */
+        .artwork:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contenedor de imagen con proporciones variables */
+        .image-container {
+            width: 100%;
+            background-color: #f0eeeb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Imagen que ocupa todo el contenedor sin deformarse */
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .artwork:hover .image-container img {
+            transform: scale(1.02);
+        }
+
+        /* Para crear rectángulos horizontales y verticales: asignamos diferentes alturas */
+        /* La clase 'horizontal' dará una imagen más panorámica */
+        .artwork.horizontal .image-container {
+            aspect-ratio: 16 / 10;
+        }
+        /* Vertical: más alta */
+        .artwork.vertical .image-container {
+            aspect-ratio: 4 / 5;
+        }
+        /* Cuadrado o por defecto */
+        .artwork.square .image-container {
+            aspect-ratio: 1 / 1;
+        }
+
+        /* Información de la obra */
+        .info {
+            padding: 1rem 1.2rem 1.2rem;
+            background: white;
+        }
+
+        .title {
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: -0.2px;
+            margin-bottom: 0.25rem;
+            color: #1e1e1e;
+        }
+
+        .medium {
+            font-size: 0.8rem;
+            color: #8c8a87;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* Lightbox (modal) */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            max-width: 85vw;
+            max-height: 85vh;
+            position: relative;
+            background: transparent;
+        }
+
+        .lightbox-content img {
+            width: auto;
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -2rem;
+            right: 0;
+            font-size: 2rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 300;
+            transition: transform 0.2s;
+        }
+
+        .close-lightbox:hover {
+            transform: scale(1.1);
+        }
+
+        .caption-lightbox {
+            text-align: center;
+            color: #ddd;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e4e2e0;
+            font-size: 0.8rem;
+            color: #8c8a87;
+        }
+
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 700px) {
+            body {
+                padding: 1.2rem;
+            }
+            .gallery {
+                gap: 1.2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Edgar Fernández</h1>
+        <div class="subhead">Arte figurativo contemporáneo</div>
+    </header>
+
+    <div class="gallery" id="gallery">
+        <!-- Las obras se inyectarán con JS para mantener orden y variedad de formatos -->
+    </div>
+
+    <footer>
+        <p>© 2025 Edgar Fernández — Todos los derechos reservados</p>
+        <p style="margin-top: 0.3rem;">contacto@edgarfernandez.art</p>
+    </footer>
+</div>
+
+<!-- Lightbox estructura -->
+<div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+        <button class="close-lightbox" id="closeLightboxBtn">&times;</button>
+        <img id="lightboxImg" src="" alt="Ampliación de obra">
+        <div id="lightboxCaption" class="caption-lightbox"></div>
+    </div>
+</div>
+
+<script>
+    // Lista de obras: imagen (placeholder), título, técnica y formato (horizontal, vertical o square)
+    // Puedes reemplazar las URLs por las rutas de tus propias imágenes cuando estén listas.
+    // Para demostración uso imágenes gratuitas de Unsplash que simulan arte figurativo / pintura / retratos.
+    // Cambia 'src' por tus propias imágenes subidas a tu repositorio (ej: "imagenes/obra1.jpg").
+    const obras = [
+        {
+            src: "https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?w=800&h=500&fit=crop",  // pintura figurativa
+            title: "Silencio en el taller",
+            medium: "Óleo sobre lienzo, 80x100 cm",
+            format: "horizontal"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1549490349-864f9f2c0a64?w=600&h=750&fit=crop",
+            title: "Mirada interior",
+            medium: "Carboncillo y pastel, 50x70 cm",
+            format: "vertical"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1580137189272-c9379f8864fd?w=800&h=800&fit=crop",
+            title: "Figura en reposo",
+            medium: "Acrílico sobre tabla, 60x60 cm",
+            format: "square"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=800&h=500&fit=crop",
+            title: "El pensamiento",
+            medium: "Tinta y grafito, 70x50 cm",
+            format: "horizontal"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1579783902614-a3fb3927c4b6?w=600&h=800&fit=crop",
+            title: "Encuentro",
+            medium: "Óleo sobre lienzo, 90x120 cm",
+            format: "vertical"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1577720643270-5d8cfdd1a013?w=800&h=600&fit=crop",
+            title: "Luz de estudio",
+            medium: "Acuarela y lápiz, 40x55 cm",
+            format: "horizontal"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=700&h=700&fit=crop",
+            title: "Bodegón figurativo",
+            medium: "Mixta sobre papel, 50x50 cm",
+            format: "square"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600&h=850&fit=crop",
+            title: "La modelo",
+            medium: "Pastel al óleo, 65x90 cm",
+            format: "vertical"
+        }
+    ];
+
+    // Función para generar la galería
+    function cargarGaleria() {
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = '';
+        
+        obras.forEach((obra, index) => {
+            // Crear el elemento .artwork con la clase de formato correspondiente
+            const artworkDiv = document.createElement('div');
+            artworkDiv.className = `artwork ${obra.format}`;
+            // Añadir un pequeño delay de animación progresivo
+            artworkDiv.style.animationDelay = `${index * 0.05}s`;
+            
+            // Contenedor de imagen
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'image-container';
+            const img = document.createElement('img');
+            img.src = obra.src;
+            img.alt = obra.title;
+            img.loading = 'lazy';
+            imgContainer.appendChild(img);
+            
+            // Info
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'info';
+            const titleP = document.createElement('p');
+            titleP.className = 'title';
+            titleP.textContent = obra.title;
+            const mediumP = document.createElement('p');
+            mediumP.className = 'medium';
+            mediumP.textContent = obra.medium;
+            infoDiv.appendChild(titleP);
+            infoDiv.appendChild(mediumP);
+            
+            artworkDiv.appendChild(imgContainer);
+            artworkDiv.appendChild(infoDiv);
+            
+            // Evento clic para abrir lightbox
+            artworkDiv.addEventListener('click', () => {
+                abrirLightbox(obra.src, obra.title, obra.medium);
+            });
+            
+            gallery.appendChild(artworkDiv);
+        });
+    }
+    
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const closeBtn = document.getElementById('closeLightboxBtn');
+    
+    function abrirLightbox(src, title, medium) {
+        lightboxImg.src = src;
+        lightboxCaption.innerHTML = `<strong>${title}</strong><br>${medium}`;
+        lightbox.classList.add('active');
+        // Evitar scroll en body
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function cerrarLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    closeBtn.addEventListener('click', cerrarLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) cerrarLightbox();
+    });
+    
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            cerrarLightbox();
+        }
+    });
+    
+    // Inicializar galería cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', cargarGaleria);
+</script>
+</body>
+</html>
