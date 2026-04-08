@@ -4,35 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Edgar Fernández | Artista Visual Figurativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Edgar Fernández</h1>
-        <div class="subhead">Arte figurativo contemporáneo</div>
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="site-name">Edgar Fernández</h1>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-section="trabajos">Trabajos</button>
+                <button class="nav-btn" data-section="acerca">Acerca de</button>
+            </nav>
+        </div>
     </header>
 
-    <div class="gallery" id="gallery">
-        <!-- Las obras se inyectarán con JS -->
-    </div>
+    <main class="container">
+        <!-- Sección Trabajos (galería) -->
+        <section id="trabajos-section" class="page-section active-section">
+            <div class="gallery" id="gallery"></div>
+        </section>
+
+        <!-- Sección Acerca de -->
+        <section id="acerca-section" class="page-section">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?w=600&h=800&fit=crop" alt="Retrato de Edgar Fernández">
+                </div>
+                <div class="about-text">
+                    <h2>Acerca de mí</h2>
+                    <p>Edgar Fernández es un artista visual figurativo radicado en [tu ciudad]. Su obra explora la condición humana a través de la pintura y el dibujo, combinando técnicas clásicas con una sensibilidad contemporánea. Ha participado en exposiciones individuales y colectivas en galerías de [país/ciudad].</p>
+                    <p>Su trabajo se caracteriza por el uso de la luz y la textura para evocar emociones íntimas, retratando escenas cotidianas con un toque poético. Actualmente desarrolla una serie sobre el silencio y la introspección.</p>
+                    <p>Para Edgar, el arte es un puente entre el espectador y su propia mirada interior. Cada pieza busca invitar a una pausa, una reflexión.</p>
+                    <p><strong>Contacto:</strong> contacto@edgarfernandez.art</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2026 Edgar Fernández — Todos los derechos reservados</p>
-        <p style="margin-top: 0.3rem;">artedgarfernandez@gmail.com</p>
+        <p>© 2025 Edgar Fernández — Todos los derechos reservados</p>
     </footer>
-</div>
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-    <div class="lightbox-content">
-        <button class="close-lightbox" id="closeLightboxBtn">&times;</button>
-        <img id="lightboxImg" src="" alt="Ampliación de obra">
-        <div id="lightboxCaption" class="caption-lightbox"></div>
+    <!-- Lightbox (estructura igual) -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="close-lightbox" id="closeLightboxBtn">&times;</button>
+            <img id="lightboxImg" src="" alt="Ampliación de obra">
+            <div id="lightboxCaption" class="caption-lightbox"></div>
+        </div>
     </div>
-</div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

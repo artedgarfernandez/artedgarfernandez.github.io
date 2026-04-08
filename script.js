@@ -1,5 +1,4 @@
-// Lista de obras - ¡REEMPLAZA LAS URLs POR TUS PROPIAS IMÁGENES!
-// Puedes poner rutas como "imagenes/mi-obra1.jpg"
+// ---------- DATOS DE LAS OBRAS (REEMPLAZA CON TUS IMÁGENES) ----------
 const obras = [
     {
         src: "https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?w=800&h=500&fit=crop",
@@ -51,6 +50,7 @@ const obras = [
     }
 ];
 
+// ---------- CARGAR GALERÍA ----------
 function cargarGaleria() {
     const gallery = document.getElementById('gallery');
     if (!gallery) return;
@@ -91,7 +91,7 @@ function cargarGaleria() {
     });
 }
 
-// Lightbox
+// ---------- LIGHTBOX ----------
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxCaption = document.getElementById('lightboxCaption');
@@ -126,4 +126,54 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', cargarGaleria);
+// ---------- NAVEGACIÓN ENTRE TRABAJOS Y ACERCA DE ----------
+function initNavigation() {
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const sections = {
+        trabajos: document.getElementById('trabajos-section'),
+        acerca: document.getElementById('acerca-section')
+    };
+    
+    function showSection(sectionId) {
+        // Ocultar todas
+        Object.values(sections).forEach(section => {
+            if (section) section.classList.remove('active-section');
+        });
+        // Mostrar la seleccionada
+        if (sections[sectionId]) {
+            sections[sectionId].classList.add('active-section');
+        }
+        // Actualizar botón activo
+        navBtns.forEach(btn => {
+            if (btn.dataset.section === sectionId) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+    
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = btn.dataset.section;
+            if (sectionId === 'trabajos') {
+                showSection('trabajos');
+                // Si la galería aún no se ha cargado, la cargamos (por si acaso)
+                if (document.getElementById('gallery').children.length === 0) {
+                    cargarGaleria();
+                }
+            } else if (sectionId === 'acerca') {
+                showSection('acerca');
+            }
+        });
+    });
+    
+    // Mostrar trabajos por defecto
+    showSection('trabajos');
+}
+
+// Inicializar todo cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    cargarGaleria();
+    initNavigation();
+});
