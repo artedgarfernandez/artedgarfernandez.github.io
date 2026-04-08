@@ -18,30 +18,38 @@
                 <button class="nav-btn active" data-section="trabajos">Trabajos</button>
                 <button class="nav-btn" data-section="acerca">Acerca de</button>
             </nav>
-            <div class="header-placeholder"></div> <!-- para equilibrar el espacio -->
+            <div class="header-placeholder"></div>
         </div>
     </header>
 
     <main class="container">
         <!-- Sección Trabajos -->
         <section id="trabajos-section" class="page-section active-section">
-            <!-- Franja de información (Ubicación, Servicios, Bienvenida, Contacto) -->
+            <!-- Franja de información rediseñada: bienvenida arriba, luego los otros tres -->
             <div class="info-strip">
-                <div class="info-item">
-                    <span class="info-label">Ubicación</span>
-                    <span class="info-value">San Cristóbal - Táchira, Venezuela</span>
+                <!-- Bloque de bienvenida centrado y ancho contenido -->
+                <div class="welcome-block">
+                    <div class="info-label">Bienvenida</div>
+                    <div class="welcome-text">
+                        ¡Hola! Soy Edgar Fernández. Artista visual figurativo, originario de San Cristóbal al Occidente de Venezuela.
+                        Gracias por visitar mi portafolio. A continuación, encontrarás una selección de mis obras más recientes
+                        y proyectos personales en los que he volcado mi pasión por la figura humana y la luz.
+                    </div>
                 </div>
-                <div class="info-item">
-                    <span class="info-label">Servicios</span>
-                    <span class="info-value">Retratos por encargo · Clases personalizadas · Venta de originales</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">Bienvenida</span>
-                    <span class="info-value">¡Hola! Soy Edgar Fernández. Artista visual figurativo, originario de San Cristóbal al Occidente de Venezuela. Gracias por visitar mi portafolio. A continuación, encontrarás una selección de mis obras más recientes y proyectos personales en los que he volcado mi pasión por la figura humana y la luz.</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">Contacto</span>
-                    <span class="info-value">Artedgarfernandez@gmail.com - +58 424 781 8447</span>
+                <!-- Fila de los tres bloques restantes -->
+                <div class="info-row">
+                    <div class="info-item">
+                        <span class="info-label">Ubicación</span>
+                        <span class="info-value">San Cristóbal - Táchira, Venezuela</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Servicios</span>
+                        <span class="info-value">Retratos por encargo · Clases personalizadas · Venta de originales</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Contacto</span>
+                        <span class="info-value">Artedgarfernandez@gmail.com - +58 424 781 8447</span>
+                    </div>
                 </div>
             </div>
             <div class="gallery" id="gallery"></div>
