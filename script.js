@@ -4,7 +4,7 @@ const obras = [
         src: "imagenes/La tregua del pensamiento.webp",
         title: "La tregua del Pensamiento",
         medium: "Óleo sobre lienzo, 37x45 cm",
-        format: "horizontal"
+        format: "square"
     },
     {
         src: "imagenes/Misterioso Conocimiento.webp",
